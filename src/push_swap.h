@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/29 22:35:13 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/05/30 20:03:23 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ typedef struct s_data
 	t_stack	*a;
 	t_stack	*b;
 }	t_data;
+
+t_stack	*init_stacks(t_data *d, int arr[], int arr_len);
 
 #endif
