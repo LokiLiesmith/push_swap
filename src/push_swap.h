@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/30 20:03:23 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/01 01:23:47 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,36 @@ typedef struct s_stack
 	t_node	*tail;
 }	t_stack;
 
+typedef struct s_instr
+{
+	struct s_instr	*next;
+	struct s_instr	*prev;
+}	t_list;
+
 typedef struct s_data
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_instr	*instr;
 }	t_data;
 
-t_stack	*init_stacks(t_data *d, int arr[], int arr_len);
+//STACK_INIT.C
+t_stack	*init_stacks(t_data *data, int arr[], int arr_len);
+void	create_node(t_stack *stack, int value);
+
+
+//STACK_UTILS.C
+void	create_node(t_stack *stack, int value);
+void	push_node_to_stack(t_stack *stack, t_node *node);
+t_node	*pop_head(t_stack *stack);
+t_node	*pop_tail(t_stack *stack);
+void	append_tail(t_stack *stack, t_node *node);
+void	append_node(t_stack *stack, int input);
+void	print_stack(t_stack *stack);
+
+//OPERATIONS.C
+void	swap_top(t_stack *stack);
+void	rotate_stack(t_stack *stack);
+void	reverse_rotate_stack(t_stack *stack);
 
 #endif

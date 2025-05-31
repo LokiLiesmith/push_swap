@@ -6,9 +6,12 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:30:27 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/31 02:35:02 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/05/31 23:56:01 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
 
 //         push_node_to_stack()
 void	push_node_to_stack(t_stack *stack, t_node *node)
@@ -19,6 +22,7 @@ void	push_node_to_stack(t_stack *stack, t_node *node)
 		stack->head->prev = node;
 	else
 		stack->tail = node;
+	stack->head = node;
 	stack->len++;
 }
 
@@ -61,8 +65,6 @@ t_node	*pop_tail(t_stack *stack)
 
 void	append_tail(t_stack *stack, t_node *node)
 {
-	t_node	*new_node;
-
 	node->next = NULL;
 	node->prev = stack->tail;
 	if (stack->tail == NULL)
@@ -72,40 +74,23 @@ void	append_tail(t_stack *stack, t_node *node)
 	}
 	else
 	{
-		stack->tail->prev = node;
+		stack->tail->next = node;
+		node->prev = stack->tail;
 		stack->tail = node;
 	}
 	stack->len++;
 }
 
-//ROTATE: HEAD >> TAIL
-void	rotate_stack(t_stack *stack)
+//	PRINT STACK
+void	print_stack(t_stack *stack)
 {
-	t_node	*node;
+	t_node	*current;
 
-	node = pop_head(stack);
-	append_tail(node);
+	current = stack->head;
+	while (current)
+	{
+		printf("%ld ", current->value);
+		current = current->next;
+	}
+	printf("\n");
 }
-/* 
-void	rotate_stack(t_stack *stack)
-{
-	t_node	*node;
-
-	if (!stack || stack->len < 2)
-		return ;
-
-	node = pop_from_stack(stack); // Removes head and returns it
-	node->next = NULL;
-	node->prev = stack->tail;
-
-	if (stack->tail)
-		stack->tail->next = node;
-
-	stack->tail = node;
-
-	if (!stack->head) // If stack was only 1 node, set head
-		stack->head = node;
-}
- */
-
-//         reverse_rotate()
