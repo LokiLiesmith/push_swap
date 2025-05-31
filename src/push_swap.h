@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 01:23:47 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/01 01:46:48 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_instr
 {
 	struct s_instr	*next;
 	struct s_instr	*prev;
+	char			*s;
 }	t_list;
 
 typedef struct s_data
