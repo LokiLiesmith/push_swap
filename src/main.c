@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:40:04 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/30 21:21:08 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/05/31 01:05:32 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	prepend_node(t_stack *stack, int input)
 	}
 	stack->len++;
 }
+
 void	append_node(t_stack *stack, int input)
 {
 	t_node	*new_node;
@@ -78,14 +79,17 @@ t_stack	*init_stacks(t_data *data, int arr[], int arr_len)
 
 int	main(void)
 {
-	t_data data;
-	t_node *loop;
+	t_data	data;
+	t_node	*loop;
 
 	int	input[7] = {4, 3, 1, 5, 2, 20, 11};
 	int	arr_len = 7;
 	
-	init_stacks(&data, input, arr_len);
-
+	init_stacks(&data, input_arr, arr_len);
+	prepend_node(data.a, 5);
+	prepend_node(data.a, 7);
+	prepend_node(data.a, 4);
+	prepend_node(data.a, 3);
 	loop = data.a->head;
 	while(loop)
 	{
