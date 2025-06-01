@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/11 16:24:31 by mrazem            #+#    #+#             */
+/*   Updated: 2025/03/22 12:45:55 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+int	ft_isalnum(int c)
 {
-	t_op	*new_op;
-
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_isalnum('A'));
+// 	printf("%d\n", ft_isalnum('}'));
+// 	printf("%d\n", ft_isalnum('a'));
+// 	printf("%d\n", ft_isalnum('9'));
+// 	return (0);
+// }

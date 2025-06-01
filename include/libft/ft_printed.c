@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_printed.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/04/04 15:32:57 by mrazem            #+#    #+#             */
+/*   Updated: 2025/04/06 15:13:52 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+size_t	ft_printed(int increment)
 {
-	t_op	*new_op;
+	static size_t	n = 0;
 
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	if (increment == -1)
+		return (n = 0);
+	return (n += increment);
 }
+/* int main (void)
+{
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(1));
+	printf("%zu", ft_printed(0));
+
+
+
+	return (0);
+} */

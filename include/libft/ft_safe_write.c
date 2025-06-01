@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_safe_write.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/27 23:14:52 by mrazem            #+#    #+#             */
+/*   Updated: 2025/04/06 15:14:58 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+ssize_t	ft_safe_write(int fd, const void *buf, size_t count)
 {
-	t_op	*new_op;
+	ssize_t	written;
 
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	written = write(fd, buf, count);
+	if (written == -1)
+		return (-1);
+	return (ft_printed(written));
 }

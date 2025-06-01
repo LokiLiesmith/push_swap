@@ -6,11 +6,25 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:40:04 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 20:50:19 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/01 22:25:20 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_list(t_op_list *list)
+{
+	t_op	*current;
+
+	current = list->head;
+	while (current)
+	{
+		printf("%s ", current->operation);
+		current = current->next;
+	}
+	printf("\n");
+}
+
 
 int	main(void)
 {

@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/11 17:04:09 by mrazem            #+#    #+#             */
+/*   Updated: 2025/03/12 19:27:51 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+int	ft_isascii(int c)
 {
-	t_op	*new_op;
-
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	if (c >= 0 && c < 128)
+		return (1);
+	return (0);
 }

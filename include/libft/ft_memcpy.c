@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/13 20:38:45 by mrazem            #+#    #+#             */
+/*   Updated: 2025/03/22 13:57:48 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+//copy n bytes from memory src to memory dst
+//
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	t_op	*new_op;
+	size_t	i;
 
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	i = 0;
+	if (!dst && !src && n > 0)
+		return (NULL);
+	while (i < n)
+	{
+		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
+		i++;
+	}
+	return (dst);
 }

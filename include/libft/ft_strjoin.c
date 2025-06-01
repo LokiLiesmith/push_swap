@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/16 23:57:04 by mrazem            #+#    #+#             */
+/*   Updated: 2025/03/17 00:12:28 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_op	*new_op;
+	char	*new_str;
+	size_t	total_length;
 
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	total_length = ft_strlen(s1) + ft_strlen(s2) + 1;
+	new_str = malloc(total_length);
+	if (!new_str)
+		return (NULL);
+	ft_strlcpy(new_str, s1, total_length);
+	ft_strlcat(new_str, s2, total_length);
+	return (new_str);
 }

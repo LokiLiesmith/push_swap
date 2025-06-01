@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:55:26 by mrazem           ###   ########.fr       */
+/*   Created: 2025/03/12 23:25:53 by mrazem            #+#    #+#             */
+/*   Updated: 2025/03/12 23:26:02 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// take a pointer and fill the next n bytes with 0.
+// Cast void pointer to unsigned char so it knows what datatype,
+// and how to do the pointer arithmetic 
+// change the next n bytes to 0 while n larger than 0.
+#include "libft.h"
 
-void	append_instructions(t_data *data, char *operation)
+void	ft_bzero(void *s, size_t n)
 {
-	t_op	*new_op;
+	unsigned char	*ptr;
 
-	new_op = malloc(sizeof(t_op));
-	if (!new_op)
-		return ;
-	new_op->operation = operation;
-	new_op->prev = data->op_list->tail;
-	new_op->next = NULL;
-	if (data->op_list->tail)
-		data->op_list->tail->next = new_op;
-	else
-		data->op_list->head = new_op;
-	data->op_list->tail = new_op;
+	ptr = (unsigned char *) s;
+	while (n)
+	{
+		*ptr++ = 0;
+		n--;
+	}
 }
