@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 23:45:09 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:37:01 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 01:41:36 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pa(t_data *data)
 {
 	push_node_to_stack(data->b, pop_head(data->a));
 	printf("PA\n");
-	// append_instructions(data, "PA");
+	append_instructions(data, ft_strdup("PA"));
 }
 
 //PUSH B

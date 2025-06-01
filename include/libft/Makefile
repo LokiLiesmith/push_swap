@@ -6,7 +6,7 @@
 #    By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/12 22:55:52 by mrazem            #+#    #+#              #
-#    Updated: 2025/03/19 02:07:28 by mrazem           ###   ########.fr        #
+#    Updated: 2025/06/02 01:43:47 by mrazem           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ =$(SRC:.c=.o)
 NAME = libft.a
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 

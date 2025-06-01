@@ -25,7 +25,7 @@ $(LIBFT_LIB):
 # Link push_swap
 $(NAME): $(OBJ) $(LIBFT_LIB)
 	@$(CC) $(CFLAGS) $(OBJ) \
-	      -L$(LIBFT_PATH) \
+	      -L$(LIBFT_PATH) -lft\
 	      -o $(NAME)
 
 # Compile .c → .o
