@@ -34,7 +34,7 @@ $(OBJDIR)/%.o: src/%.c | $(OBJDIR)
 
 # Ensure obj dir
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	@mkdir -p $(OBJDIR)
 
 VG_FLAGS  := --leak-check=full \
              --show-leak-kinds=all \
