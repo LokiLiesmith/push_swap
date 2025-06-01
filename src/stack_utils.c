@@ -6,14 +6,14 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:30:27 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/31 23:56:01 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/01 20:20:52 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-//         push_node_to_stack()
+// PUSH NODE TO STACK (stack, node)
 void	push_node_to_stack(t_stack *stack, t_node *node)
 {
 	node->next = stack->head;
@@ -26,7 +26,7 @@ void	push_node_to_stack(t_stack *stack, t_node *node)
 	stack->len++;
 }
 
-// POP NODE FROM HEAD
+// POP NODE FROM HEAD (stack)
 t_node	*pop_head(t_stack *stack)
 {
 	t_node	*node;
@@ -45,7 +45,7 @@ t_node	*pop_head(t_stack *stack)
 	return (node);
 }
 
-// POP NODE FROM TAIL
+// POP NODE FROM TAIL (stack)
 t_node	*pop_tail(t_stack *stack)
 {
 	t_node	*node;
@@ -63,6 +63,7 @@ t_node	*pop_tail(t_stack *stack)
 	return (node);
 }
 
+// APPEND NODE TO TAIL (stack, node)
 void	append_tail(t_stack *stack, t_node *node)
 {
 	node->next = NULL;
@@ -81,7 +82,7 @@ void	append_tail(t_stack *stack, t_node *node)
 	stack->len++;
 }
 
-//	PRINT STACK
+//	PRINT STACK (stack)
 void	print_stack(t_stack *stack)
 {
 	t_node	*current;

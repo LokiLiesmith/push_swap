@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 02:23:01 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/31 23:53:10 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/01 20:29:58 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_stack	*init_stacks(t_data *data, int arr[], int arr_len)
 		create_node(data->a, arr[i]);
 		i++;
 	}
+	assign_indexes(data->a);
+
 	return (data->a);
 }
 
@@ -60,4 +62,39 @@ void	create_node(t_stack *stack, int value)
 		stack->head = new_node;
 	}
 	stack->len++;
+}
+
+void	assign_indexes(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*compare;
+	int		index;
+
+	current = stack->head;
+	while (current)
+	{
+		index = 0;
+		compare = stack->head;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+}
+
+void	print_index(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->head;
+	while (current)
+	{
+		printf("%d ", current->index);
+		current = current->next;
+	}
+	printf("\n");
 }
