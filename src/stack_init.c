@@ -6,11 +6,34 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 02:23:01 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 20:29:58 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 02:02:27 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_data	*init_data(void)
+{
+	t_data *data;
+	
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	
+	data->a = malloc(sizeof(t_stack));
+	data->b = malloc(sizeof(t_stack));
+	data->op_list = malloc(sizeof(t_op_list));
+	
+	if (!data->a || !data->b || !data->op_list)
+	{
+		free(data->a);
+		free(data->b);
+		free(data->op_list);
+		free(data);
+		return (NULL);
+	}
+
+}
 
 t_stack	*init_stacks(t_data *data, int arr[], int arr_len)
 {
