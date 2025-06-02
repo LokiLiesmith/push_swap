@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 21:59:29 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 23:03:21 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,19 @@ void	print_index(t_stack *stack)
 		current = current->next;
 	}
 	printf("\n");
+}
+
+int	number_of_instructions(t_data *data)
+{
+	int		count;
+	t_op	*op;
+
+	count = 0;
+	op = data->op_list->head;
+	while (op)
+	{
+		count++;
+		op = op->next;
+	}
+	return (count);
 }

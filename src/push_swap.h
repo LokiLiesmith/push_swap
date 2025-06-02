@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 22:47:53 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 23:04:22 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	print_stack(t_stack *stack);
 
 //TROUBLESHOOTING
 void	print_index(t_stack *stack);
+int	number_of_instructions(t_data *data);
 
 //OPERATIONS.C
 int		swap_top(t_stack *stack);
