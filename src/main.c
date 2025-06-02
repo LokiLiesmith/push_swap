@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:40:04 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:25:20 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 15:56:03 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,33 @@ void	print_list(t_op_list *list)
 	printf("\n");
 }
 
-
 int	main(void)
 {
-	t_data	data;
+	t_data	*data;
 	int		input_arr[] = {0, 36, 40, 25, 2, 34, 38, 6, 31, 50, 44, 20, 27, 46, 23, 3, 39, 13, 37, 49, 35, 45, 10, 18, 21, 4, 12, 14, 16, 28, 24, 1, 33, 9, 17};
 	int		arr_len = 35;
 
-	init_stacks(&data, input_arr, arr_len);
-	print_stack(data.a);
-	print_stack(data.b);
-	// print_index(data.a);
+	data = init_data();
+	if (!data)
+		return (1);
+	fill_data(data, input_arr, arr_len);
 
-	pa(&data);
-	pa(&data);
-	pa(&data);
-	print_stack(data.a);
-	print_stack(data.b);
-	pb(&data);
-	print_stack(data.a);
-	print_stack(data.b);
-	// print_index(data.a);
-
+/////////////////////// TESTING ////////////////////////////////
+	print_stack(data->a);
+	print_stack(data->b);
+	pa(data);
+	pa(data);
+	pa(data);
+	print_stack(data->a);
+	print_stack(data->b);
+	pb(data);
+	print_stack(data->a);
+	print_stack(data->b);
+	ra(data);
+	print_stack(data->a);
+	print_stack(data->b);
+	
+	print_list(data->op_list);
+	// print_index(data->a);
 	return (0);
 }
