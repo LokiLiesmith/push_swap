@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:16:17 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 17:35:13 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 22:55:51 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,50 +38,69 @@ void	sort_three(t_data *data)
 		rra(data);
 	}
 }
-/* 
-int	find_min_index(data)
-{
-	t_node *curr;
 
+int	find_min_index(t_data *data)
+{
+	int		min;
+	t_node	*current;
+
+	current = data->a->head;
+	min = current->index;
+	while (current)
+	{
+		if (current->index < min)
+			min = current->index;
+		current = current->next;
+	}
+	return (min);
 }
 
 void	sort_five(t_data *data)
 {
-	if head > head+1
-
-	sort_3(data);
+	while (data->a->len > 3)
+	{
+		if (data->a->head->index == find_min_index(data))
+			pb(data);
+		else
+			ra(data);
+	}
+	sort_three(data);
+	if (data->b->len > 1 && data->b->head->index < data->b->tail->index)
+		sb(data);
+	pa(data);
+	pa(data);
 }
 
+void	init_radix_vars(t_data *data)
+{
+	data->vars->i = 0;
+	data->vars->j = 0;
+	data->vars->size = data->a->len;
+	data->vars->max_bits = 0;
+}
 
 void	radix_sort(t_data *data)
 {
-	int i = 0;
-	int j;
-	int size = data->a->len;
-	int max_bits = 0;
-
-	if (size <= 3)
+	init_radix_vars(data);
+	if (data->vars->size <= 3)
 		return (sort_three(data));
-	if (size <= 5)
+	if (data->vars->size <= 5)
 		return (sort_five(data));
-
-	while ((size - 1) >> max_bits)
-		max_bits++;
-
-	while (i < max_bits)
+	while ((data->vars->size - 1) >> data->vars->max_bits)
+		data->vars->max_bits++;
+	while (data->vars->i < data->vars->max_bits)
 	{
-		j = 0;
-		while (j < size)
+		data->vars->j = 0;
+		while (data->vars->j < data->vars->size)
 		{
-			if (((data->a->head->index >> i) & 1) == 0)
+			if (((data->a->head->index >> data->vars->i) & 1) == 0)
 				pb(data);
 			else
 				ra(data);
-			j++;
+			data->vars->j++;
 		}
 		while (data->b->len)
 			pa(data);
-		i++;
+		data->vars->i++;
 	}
 }
- */

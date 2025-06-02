@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 17:51:58 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 22:47:53 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,18 @@ typedef struct s_op_list
 	t_op	*tail;
 }	t_op_list;
 
+typedef struct s_vars
+{
+	int	i;
+	int	j;
+	int	size;
+	int	max_bits;
+
+}	t_vars;
+
 typedef struct s_data
 {
+	t_vars			*vars;
 	t_stack			*a;
 	t_stack			*b;
 	t_op_list		*op_list;
@@ -71,11 +81,12 @@ void	print_stack(t_stack *stack);
 void	print_index(t_stack *stack);
 
 //OPERATIONS.C
-int	swap_top(t_stack *stack);
+int		swap_top(t_stack *stack);
 void	rotate_stack(t_stack *stack);
 void	reverse_rotate_stack(t_stack *stack);
 
 void	sa(t_data *data);
+void	sb(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	ra(t_data *data);
@@ -84,6 +95,9 @@ void	append_instructions(t_data *data, char *operation);
 
 
 //RADIX_SORT.C
+void	init_radix_vars(t_data *data);
 void	sort_three(t_data *data);
+void	sort_five(t_data *data);
+void	radix_sort(t_data *data);
 
 #endif

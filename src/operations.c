@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 22:47:50 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 17:48:12 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 22:32:48 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	swap_top(t_stack *stack)
 	second->prev = NULL;
 	first->prev = second;
 	stack->head = second;
-	if (stack->len == 2)
+	if (first->next == NULL)
 		stack->tail = first;
 	return (1);
 }

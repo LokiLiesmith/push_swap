@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 02:23:01 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 18:06:57 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 21:29:11 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_data	*init_data(void)
 	data->a = malloc(sizeof(t_stack));
 	data->b = malloc(sizeof(t_stack));
 	data->op_list = malloc(sizeof(t_op_list));
-	if (!data->a || !data->b || !data->op_list)
+	data->vars = malloc(sizeof(t_vars));
+	if (!data->a || !data->b || !data->op_list ||!data->vars)
 	{
 		if (data->a)
 			free(data->a);
@@ -30,6 +31,8 @@ t_data	*init_data(void)
 			free(data->b);
 		if (data->op_list)
 			free(data->op_list);
+		if (data->vars)
+			free(data->vars);
 		free(data);
 		return (NULL);
 	}

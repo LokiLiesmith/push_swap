@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 23:45:09 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 17:51:49 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 22:36:00 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,22 @@ void	sa(t_data *data)
 		append_instructions(data, "sa");
 }
 
+//SWAP B
+void	sb(t_data *data)
+{
+	if (swap_top(data->b))
+		append_instructions(data, "sb");
+}
+
 //PUSH A
 void	pa(t_data *data)
 {
 	t_node	*node;
-	
-	if (data->a->head == NULL)
+
+	if (data->b->head == NULL)
 		return ;
-	node = pop_head(data->a);
-	push_node_to_stack(data->b, node);
+	node = pop_head(data->b);
+	push_node_to_stack(data->a, node);
 	append_instructions(data, "pa");
 }
 
@@ -35,11 +42,11 @@ void	pa(t_data *data)
 void	pb(t_data *data)
 {
 	t_node	*node;
-	
+
 	if (data->a->head == NULL)
 		return ;
 	node = pop_head(data->a);
-	push_node_to_stack(data->a, pop_head(data->b));
+	push_node_to_stack(data->b, node);
 	append_instructions(data, "pb");
 }
 
