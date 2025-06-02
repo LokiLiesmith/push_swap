@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:40:04 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 23:18:58 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/03 00:37:13 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,10 @@ int	main(void)
 	// print_index(data->a);
 	return (0);
 }
+//////////////////////// TO-DO ///////////////////////////
+// input handling
+// run the checker
+// cleanup after done
+// optimizing the algo optional 
+//////////////////////////////////////////////////////////
+
