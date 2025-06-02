@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 02:02:28 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 17:53:02 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//APPEND INSTRUCTIONS TO LIST
 void	append_instructions(t_data *data, char *operation)
 {
 	t_op	*new_op;
@@ -19,7 +20,7 @@ void	append_instructions(t_data *data, char *operation)
 	new_op = malloc(sizeof(t_op));
 	if (!new_op)
 		return ;
-	new_op->operation = operation;
+	new_op->operation = ft_strdup(operation);
 	new_op->prev = data->op_list->tail;
 	new_op->next = NULL;
 	if (data->op_list->tail)
@@ -27,4 +28,39 @@ void	append_instructions(t_data *data, char *operation)
 	else
 		data->op_list->head = new_op;
 	data->op_list->tail = new_op;
+}
+
+void	assign_indexes(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*compare;
+	int		index;
+
+	current = stack->head;
+	while (current)
+	{
+		index = 0;
+		compare = stack->head;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+}
+
+void	print_index(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->head;
+	while (current)
+	{
+		printf("%d ", current->index);
+		current = current->next;
+	}
+	printf("\n");
 }

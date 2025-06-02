@@ -6,12 +6,11 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:30:27 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 02:02:29 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 16:11:38 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 // PUSH NODE TO STACK (stack, node)
 void	push_node_to_stack(t_stack *stack, t_node *node)
@@ -41,7 +40,6 @@ t_node	*pop_head(t_stack *stack)
 	node->next = NULL;
 	node->prev = NULL;
 	stack->len--;
-
 	return (node);
 }
 
@@ -52,7 +50,6 @@ t_node	*pop_tail(t_stack *stack)
 
 	node = stack->tail;
 	stack->tail = node->prev;
-
 	if (stack->tail)
 		stack->tail->next = NULL;
 	else

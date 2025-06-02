@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 15:54:02 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 17:51:58 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_data
 	t_op_list		*op_list;
 }	t_data;
 
-//STACK_INIT.C
+//DATA_INIT.C
 t_data	*init_data(void);
 void	fill_data(t_data *data, int arr[], int arr_len);
 void	create_node(t_stack *stack, int value);
@@ -71,15 +71,19 @@ void	print_stack(t_stack *stack);
 void	print_index(t_stack *stack);
 
 //OPERATIONS.C
-void	swap_top(t_stack *stack);
+int	swap_top(t_stack *stack);
 void	rotate_stack(t_stack *stack);
 void	reverse_rotate_stack(t_stack *stack);
 
+void	sa(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	ra(t_data *data);
+void	rra(t_data *data);
 void	append_instructions(t_data *data, char *operation);
 
 
+//RADIX_SORT.C
+void	sort_three(t_data *data);
 
 #endif

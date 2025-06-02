@@ -6,20 +6,20 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 22:47:50 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 21:54:49 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 17:48:12 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //SWAP HEAD AND 2ND
-void	swap_top(t_stack *stack)
+int	swap_top(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
 
 	if (!stack || stack->len < 2)
-		return ;
+		return (0);
 
 	first = stack->head;
 	second = first->next;
@@ -32,6 +32,7 @@ void	swap_top(t_stack *stack)
 	stack->head = second;
 	if (stack->len == 2)
 		stack->tail = first;
+	return (1);
 }
 
 //ROTATE: HEAD >> TAIL

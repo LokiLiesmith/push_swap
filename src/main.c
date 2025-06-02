@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:40:04 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 15:56:03 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/02 17:53:21 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_list(t_op_list *list)
 	current = list->head;
 	while (current)
 	{
-		printf("%s ", current->operation);
+		printf("%s\n", current->operation);
 		current = current->next;
 	}
 	printf("\n");
@@ -28,8 +28,10 @@ void	print_list(t_op_list *list)
 int	main(void)
 {
 	t_data	*data;
-	int		input_arr[] = {0, 36, 40, 25, 2, 34, 38, 6, 31, 50, 44, 20, 27, 46, 23, 3, 39, 13, 37, 49, 35, 45, 10, 18, 21, 4, 12, 14, 16, 28, 24, 1, 33, 9, 17};
-	int		arr_len = 35;
+	int		input_arr[] = {1, 3, 5};
+	int		arr_len = 3;
+	// int		input_arr[] = {0, 36, 40, 25, 2, 34, 38, 6, 31, 50, 44, 20, 27, 46, 23, 3, 39, 13, 37, 49, 35, 45, 10, 18, 21, 4, 12, 14, 16, 28, 24, 1, 33, 9, 17};
+	// int		arr_len = 35;
 
 	data = init_data();
 	if (!data)
@@ -39,15 +41,7 @@ int	main(void)
 /////////////////////// TESTING ////////////////////////////////
 	print_stack(data->a);
 	print_stack(data->b);
-	pa(data);
-	pa(data);
-	pa(data);
-	print_stack(data->a);
-	print_stack(data->b);
-	pb(data);
-	print_stack(data->a);
-	print_stack(data->b);
-	ra(data);
+	sort_three(data);
 	print_stack(data->a);
 	print_stack(data->b);
 	
