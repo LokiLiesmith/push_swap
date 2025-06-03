@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/01 22:44:45 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/03 22:10:15 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,26 @@ typedef struct s_op_list
 	t_op	*tail;
 }	t_op_list;
 
+typedef struct s_vars
+{
+	int	i;
+	int	j;
+	int	size;
+	int	max_bits;
+
+}	t_vars;
+
 typedef struct s_data
 {
+	t_vars			*vars;
 	t_stack			*a;
 	t_stack			*b;
 	t_op_list		*op_list;
 }	t_data;
 
-//STACK_INIT.C
-t_stack	*init_stacks(t_data *data, int arr[], int arr_len);
+//DATA_INIT.C
+t_data	*init_data(void);
+void	fill_data(t_data *data, int arr[], int arr_len);
 void	create_node(t_stack *stack, int value);
 void	assign_indexes(t_stack *stack);
 
@@ -68,16 +79,37 @@ void	print_stack(t_stack *stack);
 
 //TROUBLESHOOTING
 void	print_index(t_stack *stack);
+int		number_of_instructions(t_data *data);
 
 //OPERATIONS.C
-void	swap_top(t_stack *stack);
+int		swap_top(t_stack *stack);
 void	rotate_stack(t_stack *stack);
 void	reverse_rotate_stack(t_stack *stack);
 
+void	sa(t_data *data);
+void	sb(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
+void	ra(t_data *data);
+void	rra(t_data *data);
 void	append_instructions(t_data *data, char *operation);
 
+//RADIX_SORT.C
+void	init_radix_vars(t_data *data);
+void	sort_three(t_data *data);
+void	sort_five(t_data *data);
+void	radix_sort(t_data *data);
+
+//INPUT_PARSER.C
+// input_check(int argc, char **argv);
+char	*join_input(int argc, char **argv);
+int		is_valid_int_string(char *s);
+int		is_in_int_range(char *s);
+long	ft_atol(const char *s);
+
+char	**check_input(int argc, char **argv);
+
+void	ft_free_split(char **arr);
 
 
 #endif

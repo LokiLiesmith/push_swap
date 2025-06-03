@@ -6,12 +6,13 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 02:23:01 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 21:29:11 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/03 23:33:57 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//ALLOCATE STRUCT SPACE
 t_data	*init_data(void)
 {
 	t_data	*data;
@@ -39,6 +40,7 @@ t_data	*init_data(void)
 	return (data);
 }
 
+//FILL STACK A WITH VALIDATED INPUT
 void	fill_data(t_data *data, int arr[], int arr_len)
 {
 	int	i;
@@ -58,7 +60,7 @@ void	fill_data(t_data *data, int arr[], int arr_len)
 	assign_indexes(data->a);
 }
 
-//PREPEND NODE TO STACK
+//APPEND NODE TO STACK
 void	create_node(t_stack *stack, int value)
 {
 	t_node	*new_node;
@@ -67,17 +69,17 @@ void	create_node(t_stack *stack, int value)
 	if (!new_node)
 		return ;
 	new_node->value = value;
-	new_node->next = stack->head;
-	new_node->prev = NULL;
-	if (stack->head == NULL)
+	new_node->next = NULL;
+	new_node->prev = stack->tail;
+	if (stack->tail == NULL)
 	{
 		stack->head = new_node;
 		stack->tail = new_node;
 	}
 	else
 	{
-		stack->head->prev = new_node;
-		stack->head = new_node;
+		stack->tail->next = new_node;
+		stack->tail = new_node;
 	}
 	stack->len++;
 }

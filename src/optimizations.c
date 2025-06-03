@@ -41,10 +41,6 @@
 /* 
  /// ALSO ADD 
 
- 🧪 Bonus Challenge:
-
-Try detecting:
-
     "pb", "pa" → cancel
 
     "ra", "rb" → replace with "rr"

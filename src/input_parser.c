@@ -6,17 +6,100 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 22:48:16 by mrazem            #+#    #+#             */
-/*   Updated: 2025/05/31 22:48:19 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/03 23:33:24 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-/* | Function                                 | Purpose                               |
-| ---------------------------------------- | ------------------------------------- |
-| `int	ft_isnumber(char *str)`             | Check for valid number syntax         |
-| `int	ft_atoi_safe(char *str, int *out)`  | Convert + range check                 |
-| `int	has_duplicates(int *arr, int size)` | Duplicate detection                   |
-| `char	**ft_split_all(char **argv)`       | Optional — split all args into tokens |
- */
+//MASSIVE STRING
+char	*join_input(int argc, char **argv)
+{
+	char	*joined;
+	char	*tmp;
+	int		i;
 
- #include "push_swap.h"
+	i = 1;
+	joined = ft_strdup("");
+	while (i < argc)
+	{
+		tmp = ft_strjoin(joined, argv[i]);
+		free(joined);
+		joined = ft_strjoin(tmp, " ");
+		free(tmp);
+		i++;
+	}
+	return (joined);
+}
+
+//CONVERT MASSIVE STRING TO INT ARR
+int *convert_to_int_arr(char **input, int len)
+{
+	int	*arr;
+	int	i;
+
+	i = 0;
+	arr = malloc(sizeof(int) * len);
+	if (!arr)
+		return (NULL);
+	while (i < len)
+	{
+		arr[i] = ft_atoi(input[i]);
+		i++;
+	}
+	return (arr);
+}
+
+//CHECK INT ARRAY FOR DUPLICATES
+int	check_duplicates(int *arr, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 1 + i;
+		while (j < len)
+		{
+			if (arr[i] == arr[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+//COUNT STRJOIN TOKENS
+int	count_tokens(char **input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+		i++;
+	return (i);
+}
+
+int	*check_input(int argc, char **argv)
+{
+	char	**input;
+	int		*array;
+	int		count;
+	int		i;
+
+	i = 0;
+	input = ft_split(join_input(argc, argv), ' ');
+	if (!input)
+		return (NULL);
+	while (input[i])
+		if (!is_valid_int(input[i++]))
+			return (ft_free_split(input), NULL);
+	count = count_tokens(input);
+	array = convert_to_int_array(input, count);
+	ft_free_split(input);
+	if (!array || !check_duplicates(array, count))
+		return (free(array), NULL);
+	return (array);
+}
