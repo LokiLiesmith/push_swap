@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:30:27 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:57:06 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 18:36:58 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_node	*pop_head(t_stack *stack)
 
 	node = stack->head;
 	stack->head = node->next;
-
 	if (stack->head)
 		stack->head->prev = NULL;
 	else
@@ -87,7 +86,7 @@ void	print_stack(t_stack *stack)
 	current = stack->head;
 	while (current)
 	{
-		ft_printf("%ld\n", current->value);
+		ft_printf("%d ", current->value);
 		current = current->next;
 	}
 	ft_printf("\n");

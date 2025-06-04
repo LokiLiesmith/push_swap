@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 22:48:16 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:18:59 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 18:39:02 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ int	*check_input(int argc, char **argv, int *arr_len)
 	joined = join_input(argc, argv);
 	input = ft_split(joined, ' ');
 	free(joined);
-
 	if (!input)
 		return (NULL);
 	while (input[i])

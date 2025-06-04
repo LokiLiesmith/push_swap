@@ -1,3 +1,4 @@
 *.o
 *.a
 fuckery/
+push_swap_tester/
