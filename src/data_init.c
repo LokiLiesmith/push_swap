@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 02:23:01 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/03 23:33:57 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:24:09 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ void	fill_data(t_data *data, int arr[], int arr_len)
 	data->b->tail = NULL;
 	data->op_list->head = NULL;
 	data->op_list->tail = NULL;
+	data->a->len = 0;
+	data->b->len = 0;
+	data->vars->i = 0;
+	data->vars->j = 0;
+	data->vars->max_bits = 0;
+	data->vars->size = 0;
 	while (i <= arr_len - 1)
 	{
 		create_node(data->a, arr[i]);

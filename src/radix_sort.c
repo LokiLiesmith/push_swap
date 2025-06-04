@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:16:17 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 23:18:21 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:49:18 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,6 @@ void	sort_three(t_data *data)
 	}
 }
 
-int	find_min_index(t_data *data)
-{
-	int		min;
-	t_node	*current;
-
-	current = data->a->head;
-	min = current->index;
-	while (current)
-	{
-		if (current->index < min)
-			min = current->index;
-		current = current->next;
-	}
-	return (min);
-}
-
 void	sort_five(t_data *data)
 {
 	while (data->a->len > 3)
@@ -69,14 +53,6 @@ void	sort_five(t_data *data)
 		sb(data);
 	pa(data);
 	pa(data);
-}
-
-void	init_radix_vars(t_data *data)
-{
-	data->vars->i = 0;
-	data->vars->j = 0;
-	data->vars->size = data->a->len;
-	data->vars->max_bits = 0;
 }
 
 void	radix_sort(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 22:48:16 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/03 23:33:24 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:18:59 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*join_input(int argc, char **argv)
 }
 
 //CONVERT MASSIVE STRING TO INT ARR
-int *convert_to_int_arr(char **input, int len)
+int	*convert_to_int_arr(char **input, int len)
 {
 	int	*arr;
 	int	i;
@@ -82,24 +82,30 @@ int	count_tokens(char **input)
 	return (i);
 }
 
-int	*check_input(int argc, char **argv)
+int	*check_input(int argc, char **argv, int *arr_len)
 {
 	char	**input;
+	char	*joined;
 	int		*array;
-	int		count;
 	int		i;
 
 	i = 0;
-	input = ft_split(join_input(argc, argv), ' ');
+	joined = join_input(argc, argv);
+	input = ft_split(joined, ' ');
+	free(joined);
+
 	if (!input)
 		return (NULL);
 	while (input[i])
-		if (!is_valid_int(input[i++]))
+	{
+		if (!is_valid_int(input[i]))
 			return (ft_free_split(input), NULL);
-	count = count_tokens(input);
-	array = convert_to_int_array(input, count);
+		i++;
+	}
+	*arr_len = count_tokens(input);
+	array = convert_to_int_arr(input, *arr_len);
 	ft_free_split(input);
-	if (!array || !check_duplicates(array, count))
+	if (!array || !check_duplicates(array, *arr_len))
 		return (free(array), NULL);
 	return (array);
 }

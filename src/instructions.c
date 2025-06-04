@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 23:45:09 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 22:36:00 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:12:37 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,4 @@ void	pb(t_data *data)
 	node = pop_head(data->a);
 	push_node_to_stack(data->b, node);
 	append_instructions(data, "pb");
-}
-
-//ROTATE A
-void	ra(t_data *data)
-{
-	rotate_stack(data->a);
-	append_instructions(data, "ra");
-}
-
-//REVERSE ROTATE A
-void	rra(t_data *data)
-{
-	reverse_rotate_stack(data->a);
-	append_instructions(data, "rra");
 }

@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:30:27 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/03 22:06:01 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:57:06 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void	print_stack(t_stack *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("%ld ", current->value);
+		ft_printf("%ld\n", current->value);
 		current = current->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }

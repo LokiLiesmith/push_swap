@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/02 23:03:21 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 02:56:41 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void	print_index(t_stack *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("%d ", current->index);
+		ft_printf("%d\n", current->index);
 		current = current->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 int	number_of_instructions(t_data *data)
