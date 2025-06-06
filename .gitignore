@@ -1,4 +1,12 @@
-*.o
-*.a
-fuckery/
-push_swap_tester/
+# *.o
+# *.a
+# obj/
+# fuckery/
+# push_swap_tester/*
+# push_swap
+# .vscode/
+# .gitignore
+# checker_Mac
+# result.txt
+# range_500.txt
+# range_100.txt

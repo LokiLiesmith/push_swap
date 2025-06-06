@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 02:44:56 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:50:39 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 20:29:05 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,28 @@ int	find_min_index(t_data *data)
 		current = current->next;
 	}
 	return (min);
+}
+
+int	find_min_pos(t_stack *stack)
+{
+	t_node	*node;
+	int		min;
+	int		pos;
+	int		min_pos;
+
+	node = stack->head;
+	min = node ->index;
+	pos = 0;
+	min_pos = 0;
+	while (node)
+	{
+		if (node->index < min)
+		{
+			min = node->index;
+			min_pos = pos;
+		}
+		node = node->next;
+		pos++;
+	}
+	return (min_pos);
 }

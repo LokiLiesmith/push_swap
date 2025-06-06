@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:16:17 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:49:18 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 22:52:40 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ void	sort_three(t_data *data)
 
 void	sort_five(t_data *data)
 {
+	int	min_pos;
+
 	while (data->a->len > 3)
 	{
-		if (data->a->head->index == find_min_index(data))
+		min_pos = find_min_pos(data->a);
+		if (min_pos == 0)
 			pb(data);
-		else
+		else if (min_pos <= data->a->len / 2)
 			ra(data);
+		else
+			rra(data);
 	}
 	sort_three(data);
 	if (data->b->len > 1 && data->b->head->index < data->b->tail->index)

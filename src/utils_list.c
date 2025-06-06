@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 21:55:41 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:56:41 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 22:52:46 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	print_index(t_stack *stack)
 		ft_printf("%d\n", current->index);
 		current = current->next;
 	}
-	ft_printf("\n");
 }
 
 int	number_of_instructions(t_data *data)

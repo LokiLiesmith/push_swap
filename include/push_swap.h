@@ -6,7 +6,7 @@
 /*   By: mrazem <mrazem@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 21:37:11 by mrazem            #+#    #+#             */
-/*   Updated: 2025/06/04 02:49:28 by mrazem           ###   ########.fr       */
+/*   Updated: 2025/06/04 20:18:00 by mrazem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	radix_sort(t_data *data);
 void	init_radix_vars(t_data *data);
 int		is_sorted(t_stack *stack);
 int		find_min_index(t_data *data);
+int		find_min_pos(t_stack *stack);
+
 
 //INPUT_PARSER.C
 char	*join_input(int argc, char **argv);
