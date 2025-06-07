@@ -18,24 +18,29 @@ void	sort_three(t_data *data)
 	int	b;	
 	int	c;
 
-	a = data->a->head->index;
-	b = data->a->head->next->index;
-	c = data->a->tail->index;
-	if (a > b && b < c && a < c)
-		sa(data);
-	else if (a < b && b > c && a < c)
+	if (data->a->len == 2 && data->a->head->index > data->a->head->next->index)
+	sa(data);
+	else
 	{
-		rra(data);
-		sa(data);
-	}
-	else if (a < b && b > c && a > c)
-		rra(data);
-	else if (a > b && b < c && a > c)
-		ra(data);
-	else if (a > b && b > c && a > c)
-	{
-		sa(data);
-		rra(data);
+		a = data->a->head->index;
+		b = data->a->head->next->index;
+		c = data->a->tail->index;
+		if (a > b && b < c && a < c)
+			sa(data);
+		else if (a < b && b > c && a < c)
+		{
+			rra(data);
+			sa(data);
+		}
+		else if (a < b && b > c && a > c)
+			rra(data);
+		else if (a > b && b < c && a > c)
+			ra(data);
+		else if (a > b && b > c && a > c)
+		{
+			sa(data);
+			rra(data);
+		}
 	}
 }
 
